@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 2px);
+}
+
+.navbar {
+  position: sticky;
+  width: 100%;
+  padding: 16px;
+}
+
+.footer {
+  margin-top: auto;
+}
+
