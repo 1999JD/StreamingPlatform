@@ -16,6 +16,12 @@ export default function Home({ data }) {
       <Carousel />
       <main>
         <div className="container">
+          <ul>
+            <li>1</li>
+            <li>3</li>
+            <li>4</li>
+            <li>ad</li>
+          </ul>
           {/* <ul className={cardStyles.cardGroup}>
             {data.map((video) =>(
               <li key={video.id} className={cardStyles.card}>
