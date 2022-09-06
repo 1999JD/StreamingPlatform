@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import cardStyles from '../styles/Card.module.css'
 import { request } from '../request';
-import Gif from '../components/index/Gif'
-import Carousel from '../components/layout/Carousel'
+import Gif from '../src/components/index/Gif'
+import Carousel from '../src/components/layout/Carousel'
 
 export default function Home({ data }) {
   return (

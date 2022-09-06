@@ -1,5 +1,5 @@
 import Image from "next/image"
-import styles from '../../styles/Carousel.module.css'
+import styles from '../../../styles/Carousel.module.css'
 import { useState } from "react"
 
 export default function Carousel() {
@@ -41,13 +41,10 @@ export default function Carousel() {
   const [current, setCurrent] = useState(middleImageIndex)
   async function handleCurrent(method) {
     if (method === 'previous' && current) {
-      console.log('before', current)
       setCurrent(current - 1)
-      console.log('after', current)
       setOffset((current - 1) * -100)
     }
     else if (method === 'next' && current !== fakeImages.length - 1) {
-      console.log('next')
       setCurrent(current + 1)
       setOffset((current + 1) * -100)
     }
