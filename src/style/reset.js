@@ -1,9 +1,10 @@
 import { css } from '@emotion/react'
-
+import theme from './theme'
 
 const reset = css`
 body {
   fontFamily: 'Noto Sans TC';
+  color: ${theme.palette.black.main}
 }  
 ul {
   list-style: none;
@@ -14,6 +15,13 @@ li {
 }
 p {
   margin: 0;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+input {
+  width: 100%
 }
 `
 

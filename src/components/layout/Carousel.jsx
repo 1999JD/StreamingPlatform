@@ -1,37 +1,80 @@
 import Image from "next/image"
-import styles from '../../../styles/Carousel.module.css'
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from "react"
+import { styled } from '@mui/material/styles';
+
+const SlideSection = styled('section')({
+  position: 'relative',
+  width: '100%',
+  height: 0,
+  paddingBottom: '40%',
+  overflow: 'hidden',
+})
+
+const SlideWrapper = styled('ul')({
+  display: 'flex',
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  margin: 0,
+  height: '100%',
+  transition: 'transform .5s ease-in-out'
+})
+
+const SlideItem = styled('li')({
+  position: 'relative',
+  flexShrink: 0,
+  width: '100%',
+})
+
+const arrowStyle = {
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  height: 'fit-content',
+  margin: 'auto',
+  cursor: 'pointer',
+  color: 'primary.dark',
+}
+
+
+
 
 export default function Carousel() {
   const fakeImages = [
     {
       id: 'slid1',
-      url: "https://picsum.photos/1200/600?random=1",
+      url: "https://picsum.photos/1200/300?random=1",
       alt: 'slide1'
     },
     {
       id: 'slid2',
-      url: "https://picsum.photos/1200/600?random=2",
+      url: "https://picsum.photos/1200/300?random=2",
       alt: 'slide2'
     },
     {
       id: 'slid3',
-      url: "https://picsum.photos/1200/600?random=3",
+      url: "https://picsum.photos/1200/300?random=3",
       alt: 'slide3'
     },
     {
       id: 'slid4',
-      url: "https://picsum.photos/1200/600?random=4",
+      url: "https://picsum.photos/1200/300?random=4",
       alt: 'slide4'
     },
     {
       id: 'slid5',
-      url: "https://picsum.photos/1200/600?random=5",
+      url: "https://picsum.photos/1200/300?random=5",
       alt: 'slide5'
     },
     {
       id: 'slid6',
-      url: "https://picsum.photos/1200/600?random=6",
+      url: "https://picsum.photos/1200/300?random=6",
       alt: 'slide6'
     },
   ]
@@ -51,20 +94,22 @@ export default function Carousel() {
   }
 
   return (
-    <div>
-      <section className={styles.slideSection}>
-        <div className={styles.slideWrapper} style={{ transform: `translateX(${offset}%)` }}>
-          {fakeImages.map(image => {
-            return (
-              <div key={image.id} className={styles.slideItem}>
-                <Image src={image.url} alt={image.alt} layout="fill" />
-              </div>
-            )
-          })}
-        </div>
-      </section >
-      <button onClick={() => { handleCurrent('previous') }}>previous</button>
-      <button onClick={() => { handleCurrent('next') }}>next</button>
-    </div >
+    <SlideSection>
+      <SlideWrapper style={{ transform: `translateX(${offset}%)` }}>
+        {fakeImages.map(image => {
+          return (
+            <SlideItem key={image.id}>
+              <Image src={image.url} alt={image.alt} layout="fill" />
+            </SlideItem>
+          )
+        })}
+      </SlideWrapper>
+      <IconButton aria-label="delete" size="large" sx={{ left: 4, ...arrowStyle }} onClick={() => { handleCurrent('previous') }}>
+        <ArrowBackIosNewIcon />
+      </IconButton>
+      <IconButton aria-label="delete" size="large" sx={{ right: 4, ...arrowStyle }} onClick={() => { handleCurrent('next') }}>
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </SlideSection >
   )
 }
