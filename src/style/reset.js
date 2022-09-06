@@ -5,6 +5,9 @@ const reset = css`
 body {
   fontFamily: 'Noto Sans TC';
   color: ${theme.palette.black.main}
+}
+body::-webkit-scrollbar{
+  display: none;
 }  
 ul {
   list-style: none;

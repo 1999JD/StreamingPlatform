@@ -1,10 +1,11 @@
 import Image from "next/image"
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from "react"
 import { styled } from '@mui/material/styles';
+import MobileStepper from '@mui/material/MobileStepper';
+
 
 const SlideSection = styled('section')({
   position: 'relative',
@@ -39,7 +40,7 @@ const arrowStyle = {
   height: 'fit-content',
   margin: 'auto',
   cursor: 'pointer',
-  color: 'primary.dark',
+  color: 'primary.light',
 }
 
 
@@ -107,6 +108,13 @@ export default function Carousel() {
       <IconButton aria-label="delete" size="large" sx={{ left: 4, ...arrowStyle }} onClick={() => { handleCurrent('previous') }}>
         <ArrowBackIosNewIcon />
       </IconButton>
+      <MobileStepper
+        variant="dots"
+        steps={6}
+        position="static"
+        activeStep={current}
+        sx={{ position: 'absolute', bottom: 0, width: '100%', justifyContent: 'center', backgroundColor: 'transparent'}}
+      />
       <IconButton aria-label="delete" size="large" sx={{ right: 4, ...arrowStyle }} onClick={() => { handleCurrent('next') }}>
         <ArrowForwardIosIcon />
       </IconButton>
