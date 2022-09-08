@@ -3,7 +3,7 @@ import theme from './theme'
 
 const reset = css`
 body {
-  fontFamily: 'Noto Sans TC';
+  font-family: 'Noto Sans TC', sans-serif;
   color: ${theme.palette.black.main}
 }
 body::-webkit-scrollbar{

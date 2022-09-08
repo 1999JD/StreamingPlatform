@@ -37,6 +37,11 @@ const theme = createTheme({
       lg: 1200,
     },
   },
+  typography: {
+    fontFamily: [
+      'Noto Sans TC', 'sans-serif'
+    ].join(','),
+  },
 })
 
 
